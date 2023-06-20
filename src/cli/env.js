@@ -1,5 +1,17 @@
-const parseEnv = () => {
-    // Write your code here 
-};
+import { env } from 'node:process'
 
-parseEnv();
+const PREFIX = 'RSS_'
+
+const parseEnv = () => {
+  let arr = []
+
+  for (const key in env) {
+    if (key.includes(PREFIX)) {
+      arr.push(`${key}=${env[key]}`)
+    }
+  }
+
+  console.log(arr.join('; '))
+}
+
+parseEnv()
